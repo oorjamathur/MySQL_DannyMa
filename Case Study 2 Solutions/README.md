@@ -3,16 +3,32 @@
 Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 
 ## A. Pizza Metrics
-1. How many pizzas were ordered?
-2. How many unique customer orders were made?
-3. How many successful orders were delivered by each runner?
-4. How many of each type of pizza was delivered?
-5. How many Vegetarian and Meatlovers were ordered by each customer?
-6. What was the maximum number of pizzas delivered in a single order?
-7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
-8. How many pizzas were delivered that had both exclusions and extras?
-9. What was the total volume of pizzas ordered for each hour of the day?
-10. What was the volume of orders for each day of the week?
+
+<b> 1. How many pizzas were ordered? </b>
+
+<i> select customer_id, sum(c) from (select customer_id, pizza_id, count(*) as c from customer_orders group by customer_id, pizza_id) as temp; </i>
+
+![soln1](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q1.PNG)
+
+<b> 2. How many unique customer orders were made? </b>
+
+<i> select customer_id, sum(c) as unique_orders from (select customer_id, pizza_id, count(*) as c from customer_orders group by customer_id, pizza_id) as temp group by customer_id; </i>
+
+![soln2](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q2.PNG)
+
+<b> 3. How many successful orders were delivered by each runner? </b>
+
+<i> select runner_id, count(*) as successful_runs from runner_orders where cancellation="" or cancellation is null group by runner_id; </i>
+
+![soln3](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q3.PNG)
+
+5. How many of each type of pizza was delivered?
+6. How many Vegetarian and Meatlovers were ordered by each customer?
+7. What was the maximum number of pizzas delivered in a single order?
+8. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+9. How many pizzas were delivered that had both exclusions and extras?
+10. What was the total volume of pizzas ordered for each hour of the day?
+11. What was the volume of orders for each day of the week?
 
 
 ## B. Runner and Customer Experience
