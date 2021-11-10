@@ -20,7 +20,7 @@ Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 
 <i> select runner_id, count(*) as successful_runs from runner_orders where cancellation="" or cancellation is null group by runner_id; </i>
 
-![soln3](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q3.PNG)
+
 
 5. How many of each type of pizza was delivered?
 6. How many Vegetarian and Meatlovers were ordered by each customer?
