@@ -76,3 +76,5 @@ product_id,count(*) as count from sales group by customer_id, product_id) as t) 
  
 
 ![ans10](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%201%20Solutions/cs1_q10.PNG)
+ 
+## Credits: Danny Ma
