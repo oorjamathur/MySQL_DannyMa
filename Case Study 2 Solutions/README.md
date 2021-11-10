@@ -20,12 +20,31 @@ Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 
 <i> select runner_id, count(*) as successful_runs from runner_orders where cancellation="" or cancellation is null group by runner_id; </i>
 
+![soln3](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q3.PNG)
+
+<b> 4. How many of each type of pizza was delivered? </b>
+
+<i> select pizza_id, count(*) as no_of_deliveries from customer_orders, runner_orders where customer_orders.order_id=runner_orders.order_id and (cancellation="" or cancellation is null) group by pizza_id; </i>
+
+![soln4](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q4.PNG)
+
+<b> 5. How many Vegetarian and Meatlovers were ordered by each customer? </b>
+
+<i> select customer_id, pizza_name, count(*) from (select customer_id, customer_orders.pizza_id, pizza_name from customer_orders, pizza_names where customer_orders.pizza_id=pizza_names.pizza_id) as t group by customer_id, pizza_name; </i>
+
+![soln5](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q5.PNG)
+
+<b> 6. What was the maximum number of pizzas delivered in a single order? </b>
+
+<i>select order_id, count(pizza_id) as count from (select customer_orders.order_id, customer_orders.pizza_id from customer_orders, runner_orders where customer_orders.order_id=runner_orders.order_id and (cancellation is null or cancellation="")) as temp group by order_id order by count desc limit 1;</i>
+
+![soln6](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q6.PNG)
+
+<b> 7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes? </b>
+
+<i>select customer_id, case when sum_changes=0 then "no changes" else "at least one change" end as is_changed from (select customer_id, sum(changes) as sum_changes from (select customer_id, case when (exclusions="" or exclusions is null) and (extras is null or extras="") then 0 else 1 end as changes from customer_orders, runner_orders where customer_orders.order_id=runner_orders.order_id and (cancellation is null or cancellation="")) as temp group by customer_id) as temp_table;</i>
 
 
-5. How many of each type of pizza was delivered?
-6. How many Vegetarian and Meatlovers were ordered by each customer?
-7. What was the maximum number of pizzas delivered in a single order?
-8. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 9. How many pizzas were delivered that had both exclusions and extras?
 10. What was the total volume of pizzas ordered for each hour of the day?
 11. What was the volume of orders for each day of the week?
