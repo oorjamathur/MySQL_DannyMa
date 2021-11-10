@@ -66,7 +66,7 @@ Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 
 
 
-## B. Runner and Customer Experience
+## B. Runner and Customer Experience (TODO)
 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
@@ -76,7 +76,7 @@ Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 7. What is the successful delivery percentage for each runner?
 
 
-## C. Ingredient Optimisation
+## C. Ingredient Optimisation (TODO)
 1. What are the standard ingredients for each pizza?
 2. What was the most commonly added extra?
 3. What was the most common exclusion?
@@ -90,7 +90,7 @@ Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
 
 
-## D. Pricing and Ratings
+## D. Pricing and Ratings (TODO)
 1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes - how much money has Pizza Runner made so far if there are no delivery fees?
 2. What if there was an additional $1 charge for any pizza extras?
 - Add cheese is $1 extra
@@ -108,5 +108,5 @@ Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 - Total number of pizzas
 5. If a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money does Pizza Runner have left over after these deliveries?
 
-## E. Bonus Questions
+## E. Bonus Questions (TODO)
 If Danny wants to expand his range of pizzas - how would this impact the existing data design? Write an INSERT statement to demonstrate what would happen if a new Supreme pizza with all the toppings was added to the Pizza Runner menu?
