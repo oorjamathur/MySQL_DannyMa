@@ -44,10 +44,26 @@ Link of the case study: https://8weeksqlchallenge.com/case-study-2/
 
 <i>select customer_id, case when sum_changes=0 then "no changes" else "at least one change" end as is_changed from (select customer_id, sum(changes) as sum_changes from (select customer_id, case when (exclusions="" or exclusions is null) and (extras is null or extras="") then 0 else 1 end as changes from customer_orders, runner_orders where customer_orders.order_id=runner_orders.order_id and (cancellation is null or cancellation="")) as temp group by customer_id) as temp_table;</i>
 
+![soln7](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q7.PNG)
 
-9. How many pizzas were delivered that had both exclusions and extras?
-10. What was the total volume of pizzas ordered for each hour of the day?
-11. What was the volume of orders for each day of the week?
+<b> 8. How many pizzas were delivered that had both exclusions and extras? </b>
+
+<i>select count(*) from customer_orders, runner_orders where runner_orders.order_id=customer_orders.order_id and (exclusions!="" and exclusions is not null) and (extras!="" and extras is not null) and (cancellation is null or cancellation="");</i>
+
+![soln8](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q8.PNG)
+
+<b> 9. What was the total volume of pizzas ordered for each hour of the day? </b>
+
+<i>select hour, count(*) as no_of_pizzas from (select *, hour(order_time) as hour from customer_orders) as temp group by hour;</i>
+
+![soln9](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q9.PNG)
+
+<b> 10. What was the volume of orders for each day of the week? </b>
+
+<i>select week, count(*) as no_of_pizzas from (select *, week(order_time) as week from customer_orders) as temp group by week;</i>
+
+![soln10](https://github.com/oorjamathur/MySQL_DannyMa/blob/main/Case%20Study%202%20Solutions/cs2_q10.PNG)
+
 
 
 ## B. Runner and Customer Experience
